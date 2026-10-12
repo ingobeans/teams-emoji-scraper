@@ -1,0 +1,35 @@
+body {
+    background-color: rgb(241, 241, 241);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    cursor: pointer;
+}
+
+input,
+button {
+    font-family: inherit;
+    border-radius: 0;
+    border: 1px solid black;
+    padding: 4px;
+}
+
+input:focus {
+    outline: none !important;
+}
+
+.container {
+    background-color: rgb(255, 255, 255);
+    min-width: fit-content;
+    max-width: 900px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    padding: 20px 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 0;
+}

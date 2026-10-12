@@ -1,4 +1,4 @@
-let a;
+let createdEmojisContainer = document.getElementById("created-emojis");
 
 function arrayBufferToBase64(buffer) {
     var binary = '';
@@ -10,11 +10,10 @@ function arrayBufferToBase64(buffer) {
     return window.btoa(binary);
 }
 
-let f = 0;
-
 function submit() {
     let text = document.getElementById("input").value;
     let p = /[a-z0-9]+/gm;
+    createdEmojisContainer.innerHTML = "";
     for (let name of text.match(p)) {
         scrapeEmoji(name);
     }
@@ -22,13 +21,11 @@ function submit() {
 function scrapeEmoji(name) {
     fetch(`https://teams.public.onecdn.static.microsoft/evergreen-assets/personal-expressions/v2/assets/emoticons/${name}/default/100_anim_f.png?v=v29`).then((r) => {
         r.arrayBuffer().then((t) => {
-            a = t;
             let img = document.createElement("img");
             img.src = "data:image/png;base64," + arrayBufferToBase64(t);
             // document.body.appendChild(img);
             img.onload = () => {
                 createGif(img, name);
-                f++;
             };
         })
     })
@@ -75,7 +72,7 @@ function createGif(img, name) {
         let img = document.createElement("img");
         let url = URL.createObjectURL(blob);
         img.src = url;
-        document.body.appendChild(img);
+        createdEmojisContainer.appendChild(img);
         img.onclick = () => { saveData(url, gif.options.name + ".gif") };
     });
 

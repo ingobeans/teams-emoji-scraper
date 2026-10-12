@@ -5,12 +5,17 @@
     <meta charset="UTF-8" />
     <title>MS Teams Emoji Scraper</title>
     <script src="gif.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <input id="input" type="text" placeholder="emo">
-    <button onclick='submit()'>Scrape</button>
-    <br>
+    <div class="container">
+        <h2>Microsoft Teams animated Emoji Scraper</h2>
+        <input id="input" type="text" placeholder="emo, heart, oreoyum">
+        <button onclick='submit()'>Scrape</button>
+        <br>
+        <div id="created-emojis"></div>
+    </div>
     <script src="script.js"></script>
 </body>
 

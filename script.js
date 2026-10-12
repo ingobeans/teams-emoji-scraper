@@ -33,6 +33,7 @@ function createGif(img) {
         quality: 10,
         width: 100,
         height: 100,
+        alphaThreshold: 230,
     });
 
 

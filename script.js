@@ -12,8 +12,10 @@ function arrayBufferToBase64(buffer) {
 
 let f = 0;
 
-function test() {
-    fetch("https://teams.public.onecdn.static.microsoft/evergreen-assets/personal-expressions/v2/assets/emoticons/emo/default/100_anim_f.png?v=v29").then((r) => {
+function submit() {
+    let text = document.getElementById("input").value;
+
+    fetch(`https://teams.public.onecdn.static.microsoft/evergreen-assets/personal-expressions/v2/assets/emoticons/${text}/default/100_anim_f.png?v=v29`).then((r) => {
         r.arrayBuffer().then((t) => {
             a = t;
             let img = document.createElement("img");

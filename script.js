@@ -10,6 +10,7 @@ function arrayBufferToBase64(buffer) {
     return window.btoa(binary);
 }
 
+let f = 0;
 
 function test() {
     fetch("https://teams.public.onecdn.static.microsoft/evergreen-assets/personal-expressions/v2/assets/emoticons/emo/default/100_anim_f.png?v=v29").then((r) => {
@@ -20,6 +21,7 @@ function test() {
             // document.body.appendChild(img);
             img.onload = () => {
                 createGif(img);
+                f++;
             };
         })
     })
@@ -33,15 +35,20 @@ function createGif(img) {
         height: 100,
     });
 
-    let canvas = document.createElement("canvas");
-    document.body.appendChild(canvas);
-    canvas.width = 100;
-    canvas.height = 100;
-    let ctx = canvas.getContext("2d");
 
-    ctx.drawImage(img, 0, 0);
+    let frames = Math.floor(img.height / 100);
 
-    gif.addFrame(ctx);
+    for (let i = 0; i < frames; i++) {
+        let canvas = document.createElement("canvas");
+        canvas.width = 100;
+        canvas.height = 100;
+        document.body.appendChild(canvas);
+        let ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, -i * 100);
+        // gif.addFrame(canvas);
+    }
+    return;
+
 
     gif.on('finished', function (blob) {
         window.open(URL.createObjectURL(blob));

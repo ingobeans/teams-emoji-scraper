@@ -11,3 +11,10 @@ Uses a fork I made of <a href="https://github.com/ingobeans/gif.js">gif.js</a> t
 To run for yourself, you only need to serve the repository root with some http server.
 
 The reason why you can't just open the `index.html` file directly is that it uses Javascript workers, which browsers reject if loaded locally.
+
+Steps:
+* `git clone https://github.com/ingobeans/teams-emoji-scraper.git`
+* `cd teams-emoji-scraper`
+* Serve with some sort of http server, like for instance: `basic-http-server .` or `http-server .`
+* View the served page!
+

@@ -14,8 +14,13 @@ let f = 0;
 
 function submit() {
     let text = document.getElementById("input").value;
-
-    fetch(`https://teams.public.onecdn.static.microsoft/evergreen-assets/personal-expressions/v2/assets/emoticons/${text}/default/100_anim_f.png?v=v29`).then((r) => {
+    let p = /[a-z0-9]+/gm;
+    for (let name of text.match(p)) {
+        scrapeEmoji(name);
+    }
+}
+function scrapeEmoji(name) {
+    fetch(`https://teams.public.onecdn.static.microsoft/evergreen-assets/personal-expressions/v2/assets/emoticons/${name}/default/100_anim_f.png?v=v29`).then((r) => {
         r.arrayBuffer().then((t) => {
             a = t;
             let img = document.createElement("img");

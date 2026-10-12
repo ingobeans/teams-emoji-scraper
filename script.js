@@ -10,6 +10,13 @@ function arrayBufferToBase64(buffer) {
     return window.btoa(binary);
 }
 
+function clickPress(event) {
+    if (event.keyCode == 13) {
+        submit()
+    }
+}
+
+
 function submit() {
     let text = document.getElementById("input").value;
     let p = /[a-z0-9]+/gm;
@@ -18,6 +25,7 @@ function submit() {
         scrapeEmoji(name);
     }
 }
+
 function scrapeEmoji(name) {
     fetch(`https://teams.public.onecdn.static.microsoft/evergreen-assets/personal-expressions/v2/assets/emoticons/${name}/default/100_anim_f.png?v=v29`).then((r) => {
         r.arrayBuffer().then((t) => {

@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h2>Microsoft Teams animated Emoji Scraper</h2>
-        <input id="input" type="text" placeholder="emo, heart, oreoyum">
+        <input id="input" type="text" onkeypress="clickPress(event)" placeholder="emo, heart, oreoyum">
         <button onclick='submit()'>Scrape</button>
         <br>
         <div id="created-emojis"></div>

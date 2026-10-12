@@ -27,14 +27,25 @@ function scrapeEmoji(name) {
             img.src = "data:image/png;base64," + arrayBufferToBase64(t);
             // document.body.appendChild(img);
             img.onload = () => {
-                createGif(img);
+                createGif(img, name);
                 f++;
             };
         })
     })
 }
 
-function createGif(img) {
+var saveData = (function () {
+    var a = document.createElement("a");
+    document.body.appendChild(a);
+    a.style = "display: none";
+    return function (url, fileName) {
+        a.href = url;
+        a.download = fileName;
+        a.click();
+    };
+}());
+
+function createGif(img, name) {
     var gif = new GIF({
         workers: 2,
         quality: 10,
@@ -42,6 +53,7 @@ function createGif(img) {
         height: 100,
         alphaThreshold: 230,
         transparent: 0x0,
+        name: name,
     });
 
 
@@ -60,7 +72,11 @@ function createGif(img) {
 
 
     gif.on('finished', function (blob) {
-        window.open(URL.createObjectURL(blob));
+        let img = document.createElement("img");
+        let url = URL.createObjectURL(blob);
+        img.src = url;
+        document.body.appendChild(img);
+        img.onclick = () => { saveData(url, gif.options.name + ".gif") };
     });
 
 

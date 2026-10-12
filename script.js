@@ -38,16 +38,16 @@ function createGif(img) {
 
     let frames = Math.floor(img.height / 100);
 
+
     for (let i = 0; i < frames; i++) {
         let canvas = document.createElement("canvas");
         canvas.width = 100;
         canvas.height = 100;
-        document.body.appendChild(canvas);
         let ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, 100, 100);
         ctx.drawImage(img, 0, -i * 100);
-        // gif.addFrame(canvas);
+        gif.addFrame(ctx, { copy: true, delay: 41 });
     }
-    return;
 
 
     gif.on('finished', function (blob) {

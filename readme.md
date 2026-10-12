@@ -18,3 +18,5 @@ Steps:
 * Serve with some sort of http server, like for instance: `basic-http-server .` or `http-server .`
 * View the served page!
 
+---
+<sup>No AI <3</sup>

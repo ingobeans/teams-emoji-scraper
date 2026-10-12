@@ -19,9 +19,12 @@ input:focus {
     outline: none !important;
 }
 
+#created-emojis {
+    min-height: 105px;
+}
+
 .container {
     background-color: rgb(255, 255, 255);
-    min-width: fit-content;
     max-width: 900px;
     width: 100%;
     display: block;

@@ -11,10 +11,19 @@
 <body>
     <div class="container">
         <h2>Microsoft Teams animated Emoji Scraper</h2>
+        <p>Enter a list of animated Microsoft Teams emojis to scrape and then hit the scrape button!</p>
+        <p>Note: some emojis just randomly don't work since microsoft named them weirdly, but most seem to work.</p>
         <input id="input" type="text" onkeypress="clickPress(event)" placeholder="emo, heart, oreoyum">
         <button onclick='submit()'>Scrape</button>
         <br>
         <div id="created-emojis"></div>
+    </div>
+    <br>
+    <div class="container">
+        <h2>About</h2>
+        <p>Hiiii welcome to my silly website!! I really like the :oreoyum: and :emo: emojis but I couldn't find anywhere to download them online so I made this!</p>
+        <p>Everything happens locally on your device, there's not even a backend attached since Microsoft for some reason allows cross-origin requests for their emoji assets which is cool.</p>
+        <p>Uses a fork I made of <a href="https://github.com/ingobeans/gif.js">gif.js</a> to compile the emoji spritesheets into .gif. My fork simply adds support for transparency thresholds to fix broken looking alpha.</p>
     </div>
     <script src="script.js"></script>
 </body>

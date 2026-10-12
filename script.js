@@ -34,6 +34,7 @@ function createGif(img) {
         width: 100,
         height: 100,
         alphaThreshold: 230,
+        transparent: 0x0,
     });
 
 
